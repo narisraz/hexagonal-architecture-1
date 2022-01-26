@@ -1,11 +1,11 @@
-#Buts du projet : 
+# Buts du projet : 
  - Appendre et comprendre l'architecture hexagonal
  - Apprendre à bien structure les projets suivant cet architecture
 
-#Description du projet :
- ###Applicative : 
+# Description du projet :
+ ### Applicative : 
  - Service Rest 
- ###Metier
+ ### Metier
  - Fournir des quotes
- ###Infrastructure
+ ### Infrastructure
  - Base de données H2
