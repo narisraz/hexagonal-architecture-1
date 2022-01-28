@@ -1,6 +1,6 @@
 # Buts du projet : 
  - Appendre et comprendre l'architecture hexagonal
- - Apprendre à bien structure les projets suivant cet architecture
+ - Apprendre à bien structurer les projets suivant cet architecture
 
 # Description du projet :
  ### Applicative : 
