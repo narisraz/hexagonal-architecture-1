@@ -1,4 +1,4 @@
-package com.naris.learn.hexagonalarchitecture1.domain.models;
+package com.naris.learn.hexagonalarchitecture1.infrastructure.persitence;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +15,8 @@ import javax.persistence.Id;
 @Getter
 @Setter
 public class Quote {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
     private String sentence;
     private String author;

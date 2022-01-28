@@ -1,13 +1,13 @@
 package com.naris.learn.hexagonalarchitecture1.infrastructure.persitence;
 
-import com.naris.learn.hexagonalarchitecture1.domain.models.Quote;
-import com.naris.learn.hexagonalarchitecture1.domain.ports.ICrudQuote;
+import com.naris.learn.hexagonalarchitecture1.domain.model.QuoteDto;
+import com.naris.learn.hexagonalarchitecture1.domain.ports.out.QuoteRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class QuoteJpaAdapter implements ICrudQuote {
+public class QuoteJpaAdapter implements QuoteRepository {
     private QuoteJpaRepository quoteJpaRepository;
 
     public QuoteJpaAdapter(QuoteJpaRepository quoteJpaRepository) {
@@ -15,17 +15,18 @@ public class QuoteJpaAdapter implements ICrudQuote {
     }
 
     @Override
-    public List<Quote> getAll() {
-        return quoteJpaRepository.findAll();
+    public List<QuoteDto> getAll() {
+        return QuoteMapper.INSTANCE.listQuoteToListQuoteDto(quoteJpaRepository.findAll());
     }
 
     @Override
-    public Quote getOne(int id) {
-        return quoteJpaRepository.findById(id).get();
+    public QuoteDto getOne(int id) {
+        return QuoteMapper.INSTANCE.quoteToQuoteDto(quoteJpaRepository.findById(id).get());
     }
 
     @Override
-    public Quote save(Quote quote) {
-        return quoteJpaRepository.save(quote);
+    public QuoteDto save(QuoteDto quoteDto) {
+        Quote quote = QuoteMapper.INSTANCE.quoteDtoToQuote(quoteDto);
+        return QuoteMapper.INSTANCE.quoteToQuoteDto(quoteJpaRepository.save(quote));
     }
 }
